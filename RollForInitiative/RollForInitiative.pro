@@ -31,4 +31,10 @@ HEADERS += \
         mainwindow.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    options.ui \
+    help.ui \
+    startmenu.ui
+
+RESOURCES += \
+    resources.qrc

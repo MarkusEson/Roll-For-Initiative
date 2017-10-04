@@ -8,12 +8,13 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+
     myFirstFunction();
 }
 
 MainWindow::~MainWindow()
 {
-    delete ui;
+    delete this->ui;
 }
 
 void MainWindow::myFirstFunction()

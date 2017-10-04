@@ -49,9 +49,11 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = ../RollForInitiative/main.cpp \
-		../RollForInitiative/mainwindow.cpp moc_mainwindow.cpp
+		../RollForInitiative/mainwindow.cpp qrc_resources.cpp \
+		moc_mainwindow.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
+		qrc_resources.o \
 		moc_mainwindow.o
 DIST          = ../../Qt/5.7/clang_64/mkspecs/features/spec_pre.prf \
 		../../Qt/5.7/clang_64/mkspecs/qdevice.pri \
@@ -189,6 +191,7 @@ DIST          = ../../Qt/5.7/clang_64/mkspecs/features/spec_pre.prf \
 		../../Qt/5.7/clang_64/mkspecs/features/qt_config.prf \
 		../../Qt/5.7/clang_64/mkspecs/macx-clang/qmake.conf \
 		../../Qt/5.7/clang_64/mkspecs/features/spec_post.prf \
+		../RollForInitiative/.qmake.stash \
 		../../Qt/5.7/clang_64/mkspecs/features/exclusive_builds.prf \
 		../../Qt/5.7/clang_64/mkspecs/features/mac/sdk.prf \
 		../../Qt/5.7/clang_64/mkspecs/features/toolchain.prf \
@@ -224,7 +227,7 @@ TARGET        = RollForInitiative.app/Contents/MacOS/RollForInitiative
 first: all
 ####### Build rules
 
-$(TARGET): ui_mainwindow.h $(OBJECTS)  
+$(TARGET): ui_mainwindow.h ui_options.h ui_help.h ui_startmenu.h $(OBJECTS)  
 	@test -d RollForInitiative.app/Contents/MacOS/ || mkdir -p RollForInitiative.app/Contents/MacOS/
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
@@ -364,6 +367,7 @@ Makefile: ../RollForInitiative/RollForInitiative.pro ../../Qt/5.7/clang_64/mkspe
 		../../Qt/5.7/clang_64/mkspecs/features/qt_config.prf \
 		../../Qt/5.7/clang_64/mkspecs/macx-clang/qmake.conf \
 		../../Qt/5.7/clang_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../Qt/5.7/clang_64/mkspecs/features/exclusive_builds.prf \
 		../../Qt/5.7/clang_64/mkspecs/features/mac/sdk.prf \
 		../../Qt/5.7/clang_64/mkspecs/features/toolchain.prf \
@@ -390,6 +394,7 @@ Makefile: ../RollForInitiative/RollForInitiative.pro ../../Qt/5.7/clang_64/mkspe
 		../../Qt/5.7/clang_64/mkspecs/features/yacc.prf \
 		../../Qt/5.7/clang_64/mkspecs/features/lex.prf \
 		../RollForInitiative/RollForInitiative.pro \
+		../RollForInitiative/resources.qrc \
 		../../Qt/5.7/clang_64/lib/QtWidgets.framework/QtWidgets.prl \
 		../../Qt/5.7/clang_64/lib/QtGui.framework/QtGui.prl \
 		../../Qt/5.7/clang_64/lib/QtCore.framework/QtCore.prl
@@ -530,6 +535,7 @@ Makefile: ../RollForInitiative/RollForInitiative.pro ../../Qt/5.7/clang_64/mkspe
 ../../Qt/5.7/clang_64/mkspecs/features/qt_config.prf:
 ../../Qt/5.7/clang_64/mkspecs/macx-clang/qmake.conf:
 ../../Qt/5.7/clang_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../Qt/5.7/clang_64/mkspecs/features/exclusive_builds.prf:
 ../../Qt/5.7/clang_64/mkspecs/features/mac/sdk.prf:
 ../../Qt/5.7/clang_64/mkspecs/features/toolchain.prf:
@@ -556,6 +562,7 @@ Makefile: ../RollForInitiative/RollForInitiative.pro ../../Qt/5.7/clang_64/mkspe
 ../../Qt/5.7/clang_64/mkspecs/features/yacc.prf:
 ../../Qt/5.7/clang_64/mkspecs/features/lex.prf:
 ../RollForInitiative/RollForInitiative.pro:
+../RollForInitiative/resources.qrc:
 ../../Qt/5.7/clang_64/lib/QtWidgets.framework/QtWidgets.prl:
 ../../Qt/5.7/clang_64/lib/QtGui.framework/QtGui.prl:
 ../../Qt/5.7/clang_64/lib/QtCore.framework/QtCore.prl:
@@ -588,9 +595,10 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
+	$(COPY_FILE) --parents ../RollForInitiative/resources.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents ../RollForInitiative/mainwindow.h $(DISTDIR)/
 	$(COPY_FILE) --parents ../RollForInitiative/main.cpp ../RollForInitiative/mainwindow.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../RollForInitiative/mainwindow.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../RollForInitiative/mainwindow.ui ../RollForInitiative/options.ui ../RollForInitiative/help.ui ../RollForInitiative/startmenu.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -600,6 +608,7 @@ clean: compiler_clean
 
 distclean: clean 
 	-$(DEL_FILE) -r RollForInitiative.app
+	-$(DEL_FILE) .qmake.stash
 	-$(DEL_FILE) Makefile
 
 
@@ -613,8 +622,27 @@ check: first
 
 benchmark: first
 
-compiler_rcc_make_all:
+compiler_rcc_make_all: qrc_resources.cpp
 compiler_rcc_clean:
+	-$(DEL_FILE) qrc_resources.cpp
+qrc_resources.cpp: ../RollForInitiative/resources.qrc \
+		../../Qt/5.7/clang_64/bin/rcc \
+		../RollForInitiative/Resources/Images/plusBIG.png \
+		../RollForInitiative/Resources/Images/dice-multiple.png \
+		../RollForInitiative/Resources/Images/account.png \
+		../RollForInitiative/Resources/Images/dice-d10.png \
+		../RollForInitiative/Resources/Images/dice-d6.png \
+		../RollForInitiative/Resources/Images/dice-d10BIG.png \
+		../RollForInitiative/Resources/Images/plus.png \
+		../RollForInitiative/Resources/Images/dice-multipleBIG.png \
+		../RollForInitiative/Resources/Images/dice-d8BIG.png \
+		../RollForInitiative/Resources/Images/accountBIG.png \
+		../RollForInitiative/Resources/Images/dice-d4.png \
+		../RollForInitiative/Resources/Images/dice-d6BIG.png \
+		../RollForInitiative/Resources/Images/dice-d4BIG.png \
+		../RollForInitiative/Resources/Images/dice-d8.png
+	/Users/markus/Qt/5.7/clang_64/bin/rcc -name resources ../RollForInitiative/resources.qrc -o qrc_resources.cpp
+
 compiler_moc_header_make_all: moc_mainwindow.cpp
 compiler_moc_header_clean:
 	-$(DEL_FILE) moc_mainwindow.cpp
@@ -626,12 +654,24 @@ moc_mainwindow.cpp: ../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/QMainW
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_mainwindow.h
+compiler_uic_make_all: ui_mainwindow.h ui_options.h ui_help.h ui_startmenu.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_mainwindow.h
+	-$(DEL_FILE) ui_mainwindow.h ui_options.h ui_help.h ui_startmenu.h
 ui_mainwindow.h: ../RollForInitiative/mainwindow.ui \
 		../../Qt/5.7/clang_64/bin/uic
 	/Users/markus/Qt/5.7/clang_64/bin/uic ../RollForInitiative/mainwindow.ui -o ui_mainwindow.h
+
+ui_options.h: ../RollForInitiative/options.ui \
+		../../Qt/5.7/clang_64/bin/uic
+	/Users/markus/Qt/5.7/clang_64/bin/uic ../RollForInitiative/options.ui -o ui_options.h
+
+ui_help.h: ../RollForInitiative/help.ui \
+		../../Qt/5.7/clang_64/bin/uic
+	/Users/markus/Qt/5.7/clang_64/bin/uic ../RollForInitiative/help.ui -o ui_help.h
+
+ui_startmenu.h: ../RollForInitiative/startmenu.ui \
+		../../Qt/5.7/clang_64/bin/uic
+	/Users/markus/Qt/5.7/clang_64/bin/uic ../RollForInitiative/startmenu.ui -o ui_startmenu.h
 
 compiler_rez_source_make_all:
 compiler_rez_source_clean:
@@ -641,7 +681,7 @@ compiler_yacc_impl_make_all:
 compiler_yacc_impl_clean:
 compiler_lex_make_all:
 compiler_lex_clean:
-compiler_clean: compiler_moc_header_clean compiler_uic_clean 
+compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean 
 
 ####### Compile
 
@@ -649,7 +689,11 @@ main.o: ../RollForInitiative/main.cpp ../RollForInitiative/mainwindow.h \
 		../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/QApplication \
-		../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/qapplication.h
+		../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/qapplication.h \
+		../RollForInitiative/startmenu.h \
+		../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		ui_startmenu.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../RollForInitiative/main.cpp
 
 mainwindow.o: ../RollForInitiative/mainwindow.cpp ../RollForInitiative/mainwindow.h \
@@ -659,6 +703,9 @@ mainwindow.o: ../RollForInitiative/mainwindow.cpp ../RollForInitiative/mainwindo
 		../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/QDebug \
 		../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/qdebug.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../RollForInitiative/mainwindow.cpp
+
+qrc_resources.o: qrc_resources.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_resources.o qrc_resources.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
