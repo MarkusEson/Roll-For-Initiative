@@ -49,10 +49,12 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = ../RollForInitiative/main.cpp \
-		../RollForInitiative/mainwindow.cpp qrc_resources.cpp \
+		../RollForInitiative/mainwindow.cpp \
+		../RollForInitiative/dice.cpp qrc_resources.cpp \
 		moc_mainwindow.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
+		dice.o \
 		qrc_resources.o \
 		moc_mainwindow.o
 DIST          = ../../Qt/5.7/clang_64/mkspecs/features/spec_pre.prf \
@@ -217,8 +219,10 @@ DIST          = ../../Qt/5.7/clang_64/mkspecs/features/spec_pre.prf \
 		../../Qt/5.7/clang_64/mkspecs/features/exceptions.prf \
 		../../Qt/5.7/clang_64/mkspecs/features/yacc.prf \
 		../../Qt/5.7/clang_64/mkspecs/features/lex.prf \
-		../RollForInitiative/RollForInitiative.pro ../RollForInitiative/mainwindow.h ../RollForInitiative/main.cpp \
-		../RollForInitiative/mainwindow.cpp
+		../RollForInitiative/RollForInitiative.pro ../RollForInitiative/mainwindow.h \
+		../RollForInitiative/dice.h ../RollForInitiative/main.cpp \
+		../RollForInitiative/mainwindow.cpp \
+		../RollForInitiative/dice.cpp
 QMAKE_TARGET  = RollForInitiative
 DESTDIR       = 
 TARGET        = RollForInitiative.app/Contents/MacOS/RollForInitiative
@@ -596,8 +600,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../RollForInitiative/resources.qrc $(DISTDIR)/
-	$(COPY_FILE) --parents ../RollForInitiative/mainwindow.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../RollForInitiative/main.cpp ../RollForInitiative/mainwindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../RollForInitiative/mainwindow.h ../RollForInitiative/dice.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../RollForInitiative/main.cpp ../RollForInitiative/mainwindow.cpp ../RollForInitiative/dice.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../RollForInitiative/mainwindow.ui ../RollForInitiative/options.ui ../RollForInitiative/help.ui ../RollForInitiative/startmenu.ui $(DISTDIR)/
 
 
@@ -648,6 +652,7 @@ compiler_moc_header_clean:
 	-$(DEL_FILE) moc_mainwindow.cpp
 moc_mainwindow.cpp: ../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../RollForInitiative/dice.h \
 		../RollForInitiative/mainwindow.h \
 		../../Qt/5.7/clang_64/bin/moc
 	/Users/markus/Qt/5.7/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -I/Users/markus/Qt/5.7/clang_64/mkspecs/macx-clang -I/Users/markus/Roll-For-Initiative/RollForInitiative -I/Users/markus/Qt/5.7/clang_64/lib/QtWidgets.framework/Headers -I/Users/markus/Qt/5.7/clang_64/lib/QtGui.framework/Headers -I/Users/markus/Qt/5.7/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/8.1.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include -F/Users/markus/Qt/5.7/clang_64/lib ../RollForInitiative/mainwindow.h -o moc_mainwindow.cpp
@@ -688,6 +693,7 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 main.o: ../RollForInitiative/main.cpp ../RollForInitiative/mainwindow.h \
 		../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../RollForInitiative/dice.h \
 		../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/QApplication \
 		../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/qapplication.h \
 		../RollForInitiative/startmenu.h \
@@ -699,10 +705,16 @@ main.o: ../RollForInitiative/main.cpp ../RollForInitiative/mainwindow.h \
 mainwindow.o: ../RollForInitiative/mainwindow.cpp ../RollForInitiative/mainwindow.h \
 		../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../RollForInitiative/dice.h \
 		ui_mainwindow.h \
 		../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/QDebug \
 		../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/qdebug.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../RollForInitiative/mainwindow.cpp
+
+dice.o: ../RollForInitiative/dice.cpp ../RollForInitiative/dice.h \
+		../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/QDebug \
+		../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/qdebug.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dice.o ../RollForInitiative/dice.cpp
 
 qrc_resources.o: qrc_resources.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_resources.o qrc_resources.cpp
