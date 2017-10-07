@@ -26,12 +26,20 @@
             <property name="text">
              <string>Add</string>
             </property>
+            <property name="icon">
+             <iconset resource="resources.qrc">
+              <normaloff>:/Images/Resources/Images/accountBIG.png</normaloff>:/Images/Resources/Images/accountBIG.png</iconset>
+            </property>
            </widget>
           </item>
           <item>
            <widget class="QPushButton" name="removePlayerButton">
             <property name="text">
              <string>Remove</string>
+            </property>
+            <property name="icon">
+             <iconset resource="resources.qrc">
+              <normaloff>:/Images/Resources/Images/close-box-outline (3).png</normaloff>:/Images/Resources/Images/close-box-outline (3).png</iconset>
             </property>
            </widget>
           </item>
@@ -113,6 +121,13 @@
            </widget>
           </item>
           <item>
+           <layout class="QVBoxLayout" name="verticalLayout_4"/>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_6">
+          <item>
            <spacer name="verticalSpacer_2">
             <property name="orientation">
              <enum>Qt::Vertical</enum>
@@ -133,10 +148,17 @@
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
          <layout class="QHBoxLayout" name="addDiceLayout">
+          <property name="sizeConstraint">
+           <enum>QLayout::SetMaximumSize</enum>
+          </property>
           <item>
            <widget class="QPushButton" name="d4Button">
             <property name="text">
              <string>d4</string>
+            </property>
+            <property name="icon">
+             <iconset resource="resources.qrc">
+              <normaloff>:/Images/Resources/Images/dice-d4BIG.png</normaloff>:/Images/Resources/Images/dice-d4BIG.png</iconset>
             </property>
             <property name="checkable">
              <bool>true</bool>
@@ -148,6 +170,10 @@
             <property name="text">
              <string>d6</string>
             </property>
+            <property name="icon">
+             <iconset resource="resources.qrc">
+              <normaloff>:/Images/Resources/Images/dice-d6BIG.png</normaloff>:/Images/Resources/Images/dice-d6BIG.png</iconset>
+            </property>
             <property name="checkable">
              <bool>true</bool>
             </property>
@@ -158,6 +184,10 @@
             <property name="text">
              <string>d8</string>
             </property>
+            <property name="icon">
+             <iconset resource="resources.qrc">
+              <normaloff>:/Images/Resources/Images/dice-d8BIG.png</normaloff>:/Images/Resources/Images/dice-d8BIG.png</iconset>
+            </property>
             <property name="checkable">
              <bool>true</bool>
             </property>
@@ -167,6 +197,10 @@
            <widget class="QPushButton" name="d20Button">
             <property name="text">
              <string>d20</string>
+            </property>
+            <property name="icon">
+             <iconset resource="resources.qrc">
+              <normaloff>:/Images/Resources/Images/dice-d10BIG.png</normaloff>:/Images/Resources/Images/dice-d10BIG.png</iconset>
             </property>
             <property name="checkable">
              <bool>true</bool>
@@ -214,14 +248,14 @@
           <item row="3" column="0">
            <widget class="QSpinBox" name="bonusesButton">
             <property name="maximum">
-             <number>199</number>
+             <number>100</number>
             </property>
            </widget>
           </item>
           <item row="1" column="0">
            <widget class="QSpinBox" name="addDiesButton">
             <property name="maximum">
-             <number>199</number>
+             <number>100</number>
             </property>
            </widget>
           </item>
@@ -282,6 +316,8 @@
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

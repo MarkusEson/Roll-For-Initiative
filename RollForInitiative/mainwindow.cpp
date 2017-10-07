@@ -26,7 +26,7 @@ MainWindow::MainWindow(QWidget *parent) :
         connect(button, SIGNAL(clicked()), this, SLOT(aButtonWasClicked()));
     }
 
-    myFirstFunction();
+
 }
 
 MainWindow::~MainWindow()
@@ -63,19 +63,20 @@ void MainWindow::aButtonWasClicked()
 
         ui->resultLabel->setText("Total: "+QString::number(diceTotValue));
     }
+    // When you click Add / Remove
+    if(theButton == ui->addPlayerButton)
+    {
+        ui->playerNameLayout->addWidget(new QPushButton(""));
+    }
+    if(theButton == ui->removePlayerButton)
+    {
+        // Change so it removes the last added widget
+        ui->playerNameLayout->itemAt(2)->widget()->setVisible(false);
+    }
 
 
 
-//    qDebug() << tot;
-//    QString printout = QString::number(tot);
-//    ui->resultLabel->setText(printout);
 
-
-}
-
-void MainWindow::myFirstFunction()
-{
-    //qDebug() << "Hello World!" << endl;
 }
 
 int MainWindow::switchTypeOfDice()

@@ -52,6 +52,8 @@ public:
     QPushButton *name8Button;
     QPushButton *name9Button;
     QPushButton *name10Button;
+    QVBoxLayout *verticalLayout_4;
+    QVBoxLayout *verticalLayout_6;
     QSpacerItem *verticalSpacer_2;
     QVBoxLayout *verticalLayout;
     QHBoxLayout *addDiceLayout;
@@ -99,11 +101,17 @@ public:
         addRemovePlayerLayout->setObjectName(QStringLiteral("addRemovePlayerLayout"));
         addPlayerButton = new QPushButton(centralWidget);
         addPlayerButton->setObjectName(QStringLiteral("addPlayerButton"));
+        QIcon icon;
+        icon.addFile(QStringLiteral(":/Images/Resources/Images/accountBIG.png"), QSize(), QIcon::Normal, QIcon::Off);
+        addPlayerButton->setIcon(icon);
 
         addRemovePlayerLayout->addWidget(addPlayerButton);
 
         removePlayerButton = new QPushButton(centralWidget);
         removePlayerButton->setObjectName(QStringLiteral("removePlayerButton"));
+        QIcon icon1;
+        icon1.addFile(QStringLiteral(":/Images/Resources/Images/close-box-outline (3).png"), QSize(), QIcon::Normal, QIcon::Off);
+        removePlayerButton->setIcon(icon1);
 
         addRemovePlayerLayout->addWidget(removePlayerButton);
 
@@ -163,12 +171,24 @@ public:
 
         playerNameLayout->addWidget(name10Button);
 
-        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        verticalLayout_4 = new QVBoxLayout();
+        verticalLayout_4->setSpacing(6);
+        verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
 
-        playerNameLayout->addItem(verticalSpacer_2);
+        playerNameLayout->addLayout(verticalLayout_4);
 
 
         verticalLayout_2->addLayout(playerNameLayout);
+
+        verticalLayout_6 = new QVBoxLayout();
+        verticalLayout_6->setSpacing(6);
+        verticalLayout_6->setObjectName(QStringLiteral("verticalLayout_6"));
+        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_6->addItem(verticalSpacer_2);
+
+
+        verticalLayout_2->addLayout(verticalLayout_6);
 
 
         horizontalLayout->addLayout(verticalLayout_2);
@@ -179,26 +199,39 @@ public:
         addDiceLayout = new QHBoxLayout();
         addDiceLayout->setSpacing(6);
         addDiceLayout->setObjectName(QStringLiteral("addDiceLayout"));
+        addDiceLayout->setSizeConstraint(QLayout::SetMaximumSize);
         d4Button = new QPushButton(centralWidget);
         d4Button->setObjectName(QStringLiteral("d4Button"));
+        QIcon icon2;
+        icon2.addFile(QStringLiteral(":/Images/Resources/Images/dice-d4BIG.png"), QSize(), QIcon::Normal, QIcon::Off);
+        d4Button->setIcon(icon2);
         d4Button->setCheckable(true);
 
         addDiceLayout->addWidget(d4Button);
 
         d6Button = new QPushButton(centralWidget);
         d6Button->setObjectName(QStringLiteral("d6Button"));
+        QIcon icon3;
+        icon3.addFile(QStringLiteral(":/Images/Resources/Images/dice-d6BIG.png"), QSize(), QIcon::Normal, QIcon::Off);
+        d6Button->setIcon(icon3);
         d6Button->setCheckable(true);
 
         addDiceLayout->addWidget(d6Button);
 
         d8Button = new QPushButton(centralWidget);
         d8Button->setObjectName(QStringLiteral("d8Button"));
+        QIcon icon4;
+        icon4.addFile(QStringLiteral(":/Images/Resources/Images/dice-d8BIG.png"), QSize(), QIcon::Normal, QIcon::Off);
+        d8Button->setIcon(icon4);
         d8Button->setCheckable(true);
 
         addDiceLayout->addWidget(d8Button);
 
         d20Button = new QPushButton(centralWidget);
         d20Button->setObjectName(QStringLiteral("d20Button"));
+        QIcon icon5;
+        icon5.addFile(QStringLiteral(":/Images/Resources/Images/dice-d10BIG.png"), QSize(), QIcon::Normal, QIcon::Off);
+        d20Button->setIcon(icon5);
         d20Button->setCheckable(true);
 
         addDiceLayout->addWidget(d20Button);
@@ -230,13 +263,13 @@ public:
 
         bonusesButton = new QSpinBox(centralWidget);
         bonusesButton->setObjectName(QStringLiteral("bonusesButton"));
-        bonusesButton->setMaximum(199);
+        bonusesButton->setMaximum(100);
 
         modifyDiceLayout->addWidget(bonusesButton, 3, 0, 1, 1);
 
         addDiesButton = new QSpinBox(centralWidget);
         addDiesButton->setObjectName(QStringLiteral("addDiesButton"));
-        addDiesButton->setMaximum(199);
+        addDiesButton->setMaximum(100);
 
         modifyDiceLayout->addWidget(addDiesButton, 1, 0, 1, 1);
 
