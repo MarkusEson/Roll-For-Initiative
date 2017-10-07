@@ -217,6 +217,7 @@ DIST          = ../../Qt/5.9.1/clang_64/mkspecs/features/spec_pre.prf \
 		../../Qt/5.9.1/clang_64/mkspecs/features/qt_config.prf \
 		../../Qt/5.9.1/clang_64/mkspecs/macx-clang/qmake.conf \
 		../../Qt/5.9.1/clang_64/mkspecs/features/spec_post.prf \
+		../RollForInitiative/.qmake.stash \
 		../../Qt/5.9.1/clang_64/mkspecs/features/exclusive_builds.prf \
 		../../Qt/5.9.1/clang_64/mkspecs/features/mac/sdk.prf \
 		../../Qt/5.9.1/clang_64/mkspecs/features/toolchain.prf \
@@ -422,6 +423,7 @@ Makefile: ../RollForInitiative/RollForInitiative.pro ../../Qt/5.9.1/clang_64/mks
 		../../Qt/5.9.1/clang_64/mkspecs/features/qt_config.prf \
 		../../Qt/5.9.1/clang_64/mkspecs/macx-clang/qmake.conf \
 		../../Qt/5.9.1/clang_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../Qt/5.9.1/clang_64/mkspecs/features/exclusive_builds.prf \
 		../../Qt/5.9.1/clang_64/mkspecs/features/mac/sdk.prf \
 		../../Qt/5.9.1/clang_64/mkspecs/features/toolchain.prf \
@@ -612,6 +614,7 @@ Makefile: ../RollForInitiative/RollForInitiative.pro ../../Qt/5.9.1/clang_64/mks
 ../../Qt/5.9.1/clang_64/mkspecs/features/qt_config.prf:
 ../../Qt/5.9.1/clang_64/mkspecs/macx-clang/qmake.conf:
 ../../Qt/5.9.1/clang_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../Qt/5.9.1/clang_64/mkspecs/features/exclusive_builds.prf:
 ../../Qt/5.9.1/clang_64/mkspecs/features/mac/sdk.prf:
 ../../Qt/5.9.1/clang_64/mkspecs/features/toolchain.prf:
@@ -686,6 +689,7 @@ clean: compiler_clean
 
 distclean: clean 
 	-$(DEL_FILE) -r RollForInitiative.app
+	-$(DEL_FILE) .qmake.stash
 	-$(DEL_FILE) Makefile
 
 
@@ -704,20 +708,30 @@ compiler_rcc_clean:
 	-$(DEL_FILE) qrc_resources.cpp
 qrc_resources.cpp: ../RollForInitiative/resources.qrc \
 		../../Qt/5.9.1/clang_64/bin/rcc \
-		../RollForInitiative/Resources/Images/plusBIG.png \
-		../RollForInitiative/Resources/Images/dice-multiple.png \
-		../RollForInitiative/Resources/Images/account.png \
-		../RollForInitiative/Resources/Images/dice-d10.png \
-		../RollForInitiative/Resources/Images/dice-d6.png \
-		../RollForInitiative/Resources/Images/dice-d10BIG.png \
-		../RollForInitiative/Resources/Images/plus.png \
-		../RollForInitiative/Resources/Images/dice-multipleBIG.png \
-		../RollForInitiative/Resources/Images/dice-d8BIG.png \
-		../RollForInitiative/Resources/Images/accountBIG.png \
-		../RollForInitiative/Resources/Images/dice-d4.png \
+		../RollForInitiative/Resources/Images/close-box.png \
 		../RollForInitiative/Resources/Images/dice-d6BIG.png \
+		../RollForInitiative/Resources/Images/server-remove.png \
+		../RollForInitiative/Resources/Images/plus.png \
+		../RollForInitiative/Resources/Images/close-box-outline.png \
+		../RollForInitiative/Resources/Images/plusBIG.png \
 		../RollForInitiative/Resources/Images/dice-d4BIG.png \
-		../RollForInitiative/Resources/Images/dice-d8.png
+		../RollForInitiative/Resources/Images/Background1.2.png \
+		../RollForInitiative/Resources/Images/dice-d8.png \
+		../RollForInitiative/Resources/Images/dice-d10.png \
+		../RollForInitiative/Resources/Images/dice-multiple.png \
+		../RollForInitiative/Resources/Images/dice-multipleBIG.png \
+		../RollForInitiative/Resources/Images/chevron-double-down.png \
+		../RollForInitiative/Resources/Images/dice-d8BIG.png \
+		../RollForInitiative/Resources/Images/sort-numeric.png \
+		../RollForInitiative/Resources/Images/dice-d6.png \
+		../RollForInitiative/Resources/Images/accountBIG.png \
+		../RollForInitiative/Resources/Images/server-plus.png \
+		../RollForInitiative/Resources/Images/chevron-double-up.png \
+		../RollForInitiative/Resources/Images/dice-d10BIG.png \
+		../RollForInitiative/Resources/Images/dice-d4.png \
+		../RollForInitiative/Resources/Images/account.png \
+		../RollForInitiative/Resources/Images/chevron-double-right.png \
+		../RollForInitiative/Resources/Images/chevron-double-left.png
 	/Users/markus/Qt/5.9.1/clang_64/bin/rcc -name resources ../RollForInitiative/resources.qrc -o qrc_resources.cpp
 
 compiler_moc_predefs_make_all: moc_predefs.h

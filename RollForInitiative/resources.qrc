@@ -14,6 +14,44 @@
         <file>Resources/Images/dice-multipleBIG.png</file>
         <file>Resources/Images/plus.png</file>
         <file>Resources/Images/plusBIG.png</file>
+        <file>Resources/Images/Background 1.1.png</file>
+        <file>Resources/Images/chevron-double-down (1).png</file>
+        <file>Resources/Images/chevron-double-down (2).png</file>
+        <file>Resources/Images/chevron-double-down (3).png</file>
+        <file>Resources/Images/chevron-double-down.png</file>
+        <file>Resources/Images/chevron-double-left (1).png</file>
+        <file>Resources/Images/chevron-double-left (2).png</file>
+        <file>Resources/Images/chevron-double-left (3).png</file>
+        <file>Resources/Images/chevron-double-left.png</file>
+        <file>Resources/Images/chevron-double-right (1).png</file>
+        <file>Resources/Images/chevron-double-right (2).png</file>
+        <file>Resources/Images/chevron-double-right (3).png</file>
+        <file>Resources/Images/chevron-double-right.png</file>
+        <file>Resources/Images/chevron-double-up (1).png</file>
+        <file>Resources/Images/chevron-double-up (2).png</file>
+        <file>Resources/Images/chevron-double-up (3).png</file>
+        <file>Resources/Images/chevron-double-up.png</file>
+        <file>Resources/Images/close-box (1).png</file>
+        <file>Resources/Images/close-box (2).png</file>
+        <file>Resources/Images/close-box (3).png</file>
+        <file>Resources/Images/close-box-outline (1).png</file>
+        <file>Resources/Images/close-box-outline (2).png</file>
+        <file>Resources/Images/close-box-outline (3).png</file>
+        <file>Resources/Images/close-box-outline.png</file>
+        <file>Resources/Images/close-box.png</file>
+        <file>Resources/Images/server-plus (1).png</file>
+        <file>Resources/Images/server-plus (2).png</file>
+        <file>Resources/Images/server-plus (3).png</file>
+        <file>Resources/Images/server-plus.png</file>
+        <file>Resources/Images/server-remove (1).png</file>
+        <file>Resources/Images/server-remove (2).png</file>
+        <file>Resources/Images/server-remove (3).png</file>
+        <file>Resources/Images/server-remove.png</file>
+        <file>Resources/Images/sort-numeric (1).png</file>
+        <file>Resources/Images/sort-numeric (2).png</file>
+        <file>Resources/Images/sort-numeric (3).png</file>
+        <file>Resources/Images/sort-numeric.png</file>
+        <file>Resources/Images/Background1.2.png</file>
     </qresource>
     <qresource prefix="/Sound"/>
 </RCC>

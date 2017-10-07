@@ -101,3 +101,18 @@ void MainWindow::on_addDiesButton_valueChanged(int numOfDice)
     //qDebug() << numOfDice;
     _howManyDiceYouWantToRoll = numOfDice;
 }
+
+void MainWindow::on_actionReset_Board_triggered()
+{
+
+}
+
+void MainWindow::on_actionQuit_triggered()
+{
+
+}
+
+void MainWindow::on_actionGuide_triggered()
+{
+
+}

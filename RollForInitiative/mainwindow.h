@@ -23,6 +23,12 @@ private slots:
     void on_bonusesButton_valueChanged(int rollBonus);
     void on_addDiesButton_valueChanged(int numOfDice);
 
+    void on_actionReset_Board_triggered();
+
+    void on_actionQuit_triggered();
+
+    void on_actionGuide_triggered();
+
 private:
     Ui::MainWindow *ui;
     dice _dice;
