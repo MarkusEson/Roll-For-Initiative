@@ -631,20 +631,30 @@ compiler_rcc_clean:
 	-$(DEL_FILE) qrc_resources.cpp
 qrc_resources.cpp: ../RollForInitiative/resources.qrc \
 		../../Qt/5.7/clang_64/bin/rcc \
-		../RollForInitiative/Resources/Images/plusBIG.png \
-		../RollForInitiative/Resources/Images/dice-multiple.png \
-		../RollForInitiative/Resources/Images/account.png \
-		../RollForInitiative/Resources/Images/dice-d10.png \
-		../RollForInitiative/Resources/Images/dice-d6.png \
-		../RollForInitiative/Resources/Images/dice-d10BIG.png \
-		../RollForInitiative/Resources/Images/plus.png \
-		../RollForInitiative/Resources/Images/dice-multipleBIG.png \
-		../RollForInitiative/Resources/Images/dice-d8BIG.png \
-		../RollForInitiative/Resources/Images/accountBIG.png \
-		../RollForInitiative/Resources/Images/dice-d4.png \
+		../RollForInitiative/Resources/Images/close-box.png \
 		../RollForInitiative/Resources/Images/dice-d6BIG.png \
+		../RollForInitiative/Resources/Images/server-remove.png \
+		../RollForInitiative/Resources/Images/plus.png \
+		../RollForInitiative/Resources/Images/close-box-outline.png \
+		../RollForInitiative/Resources/Images/plusBIG.png \
 		../RollForInitiative/Resources/Images/dice-d4BIG.png \
-		../RollForInitiative/Resources/Images/dice-d8.png
+		../RollForInitiative/Resources/Images/Background1.2.png \
+		../RollForInitiative/Resources/Images/dice-d8.png \
+		../RollForInitiative/Resources/Images/dice-d10.png \
+		../RollForInitiative/Resources/Images/dice-multiple.png \
+		../RollForInitiative/Resources/Images/dice-multipleBIG.png \
+		../RollForInitiative/Resources/Images/chevron-double-down.png \
+		../RollForInitiative/Resources/Images/dice-d8BIG.png \
+		../RollForInitiative/Resources/Images/sort-numeric.png \
+		../RollForInitiative/Resources/Images/dice-d6.png \
+		../RollForInitiative/Resources/Images/accountBIG.png \
+		../RollForInitiative/Resources/Images/server-plus.png \
+		../RollForInitiative/Resources/Images/chevron-double-up.png \
+		../RollForInitiative/Resources/Images/dice-d10BIG.png \
+		../RollForInitiative/Resources/Images/dice-d4.png \
+		../RollForInitiative/Resources/Images/account.png \
+		../RollForInitiative/Resources/Images/chevron-double-right.png \
+		../RollForInitiative/Resources/Images/chevron-double-left.png
 	/Users/markus/Qt/5.7/clang_64/bin/rcc -name resources ../RollForInitiative/resources.qrc -o qrc_resources.cpp
 
 compiler_moc_header_make_all: moc_mainwindow.cpp
@@ -708,7 +718,13 @@ mainwindow.o: ../RollForInitiative/mainwindow.cpp ../RollForInitiative/mainwindo
 		../RollForInitiative/dice.h \
 		ui_mainwindow.h \
 		../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/QDebug \
-		../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/qdebug.h
+		../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/qdebug.h \
+		../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/QInputDialog \
+		../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/qinputdialog.h \
+		../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/QDir \
+		../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/qdir.h \
+		../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../RollForInitiative/mainwindow.cpp
 
 dice.o: ../RollForInitiative/dice.cpp ../RollForInitiative/dice.h \

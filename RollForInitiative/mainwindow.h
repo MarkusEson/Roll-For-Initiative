@@ -18,10 +18,14 @@ public:
 
     // My Open Functions
     int switchTypeOfDice();
+    void resetNamePlates();
+    void nextPlayerTurn();
+
 
 private slots:
     // My Slots
     void aButtonWasClicked();
+    void aNamePlateWasClicked();
     void on_bonusesButton_valueChanged(int rollBonus);
     void on_addDiesButton_valueChanged(int numOfDice);
     void on_actionReset_Board_triggered();

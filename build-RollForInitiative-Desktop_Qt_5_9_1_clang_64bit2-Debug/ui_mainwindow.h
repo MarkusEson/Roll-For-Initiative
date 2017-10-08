@@ -39,8 +39,8 @@ public:
     QHBoxLayout *horizontalLayout;
     QVBoxLayout *verticalLayout_2;
     QHBoxLayout *addRemovePlayerLayout;
-    QPushButton *addPlayerButton;
-    QPushButton *removePlayerButton;
+    QPushButton *nextPlayerButton;
+    QPushButton *resetNamesButton;
     QVBoxLayout *playerNameLayout;
     QPushButton *name1Button;
     QPushButton *name2Button;
@@ -99,21 +99,21 @@ public:
         addRemovePlayerLayout = new QHBoxLayout();
         addRemovePlayerLayout->setSpacing(6);
         addRemovePlayerLayout->setObjectName(QStringLiteral("addRemovePlayerLayout"));
-        addPlayerButton = new QPushButton(centralWidget);
-        addPlayerButton->setObjectName(QStringLiteral("addPlayerButton"));
+        nextPlayerButton = new QPushButton(centralWidget);
+        nextPlayerButton->setObjectName(QStringLiteral("nextPlayerButton"));
         QIcon icon;
-        icon.addFile(QStringLiteral(":/Images/Resources/Images/accountBIG.png"), QSize(), QIcon::Normal, QIcon::Off);
-        addPlayerButton->setIcon(icon);
+        icon.addFile(QStringLiteral(":/Images/Resources/Images/chevron-double-down (2).png"), QSize(), QIcon::Normal, QIcon::Off);
+        nextPlayerButton->setIcon(icon);
 
-        addRemovePlayerLayout->addWidget(addPlayerButton);
+        addRemovePlayerLayout->addWidget(nextPlayerButton);
 
-        removePlayerButton = new QPushButton(centralWidget);
-        removePlayerButton->setObjectName(QStringLiteral("removePlayerButton"));
+        resetNamesButton = new QPushButton(centralWidget);
+        resetNamesButton->setObjectName(QStringLiteral("resetNamesButton"));
         QIcon icon1;
         icon1.addFile(QStringLiteral(":/Images/Resources/Images/close-box-outline (3).png"), QSize(), QIcon::Normal, QIcon::Off);
-        removePlayerButton->setIcon(icon1);
+        resetNamesButton->setIcon(icon1);
 
-        addRemovePlayerLayout->addWidget(removePlayerButton);
+        addRemovePlayerLayout->addWidget(resetNamesButton);
 
 
         verticalLayout_2->addLayout(addRemovePlayerLayout);
@@ -314,8 +314,8 @@ public:
         actionReset_Board->setText(QApplication::translate("MainWindow", "Reset Board", Q_NULLPTR));
         actionQuit->setText(QApplication::translate("MainWindow", "Quit", Q_NULLPTR));
         actionGuide->setText(QApplication::translate("MainWindow", "Guide", Q_NULLPTR));
-        addPlayerButton->setText(QApplication::translate("MainWindow", "Add", Q_NULLPTR));
-        removePlayerButton->setText(QApplication::translate("MainWindow", "Remove", Q_NULLPTR));
+        nextPlayerButton->setText(QApplication::translate("MainWindow", "Next", Q_NULLPTR));
+        resetNamesButton->setText(QApplication::translate("MainWindow", "Reset", Q_NULLPTR));
         name1Button->setText(QApplication::translate("MainWindow", "namn 1", Q_NULLPTR));
         name2Button->setText(QApplication::translate("MainWindow", "namn 2", Q_NULLPTR));
         name3Button->setText(QApplication::translate("MainWindow", "namn 3", Q_NULLPTR));

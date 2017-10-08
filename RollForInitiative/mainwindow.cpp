@@ -2,6 +2,9 @@
 #include "ui_mainwindow.h"
 #include <QDebug>
 #include "dice.h"
+#include <QInputDialog>
+#include <QDir>
+#include <QMessageBox>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -11,7 +14,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     for(int i = 0; i < ui->playerNameLayout->count(); i++){
         QWidget *button = ui->playerNameLayout->itemAt(i)->widget();
-        connect(button, SIGNAL(clicked()), this, SLOT(aButtonWasClicked()));
+        connect(button, SIGNAL(clicked()), this, SLOT(aNamePlateWasClicked()));
     }
     for(int i = 0; i < ui->addRemovePlayerLayout->count(); i++){
         QWidget *button = ui->addRemovePlayerLayout->itemAt(i)->widget();
@@ -63,19 +66,59 @@ void MainWindow::aButtonWasClicked()
 
         ui->resultLabel->setText("Total: "+QString::number(diceTotValue));
     }
-    // When you click Add / Remove
-    if(theButton == ui->addPlayerButton)
+
+    if(theButton == ui->nextPlayerButton)
     {
-        ui->playerNameLayout->addWidget(new QPushButton(""));
+        // changes to next player
+        nextPlayerTurn();
     }
-    if(theButton == ui->removePlayerButton)
+    if(theButton == ui->resetNamesButton)
     {
-        // Change so it removes the last added widget
-        ui->playerNameLayout->itemAt(2)->widget()->setVisible(false);
+        // resets names when clicked
+        resetNamePlates();
     }
 
 
 
+
+
+
+}
+
+void MainWindow::aNamePlateWasClicked()
+{
+    QPushButton *theButton = dynamic_cast<QPushButton*>(sender());
+
+
+    // on click open Dialog Window to set name to clicked button.
+    bool ok;
+    QString nameToNamePlate = QInputDialog::getText(this, "Change Name",
+                                                    "Enter Name",
+                                                    QLineEdit::Normal,
+                                                    "", &ok);
+
+
+    // changes names of players and enemies
+   if(theButton == ui->renamePlayer1)
+       ui->name1Label->setText(nameToNamePlate);
+   if(theButton == ui->renamePlayer2)
+       ui->name2Label->setText(nameToNamePlate);
+   if(theButton == ui->renamePlayer3)
+       ui->name3Label->setText(nameToNamePlate);
+   if(theButton == ui->renamePlayer4)
+       ui->name4Label->setText(nameToNamePlate);
+   if(theButton == ui->renamePlayer5)
+       ui->name5Label->setText(nameToNamePlate);
+   if(theButton == ui->renamePlayer6)
+       ui->name6Label->setText(nameToNamePlate);
+   if(theButton == ui->renamePlayer7)
+       ui->name7Label->setText(nameToNamePlate);
+   if(theButton == ui->renamePlayer8)
+       ui->name8Label->setText(nameToNamePlate);
+   if(theButton == ui->renamePlayer9)
+       ui->name9Label->setText(nameToNamePlate);
+   if(theButton == ui->renamePlayer10)
+       ui->name10Label->setText(nameToNamePlate);
 
 }
 
@@ -89,6 +132,39 @@ int MainWindow::switchTypeOfDice()
         return _d8;
     else
         return _d20;
+}
+
+void MainWindow::resetNamePlates()
+{
+    QMessageBox cancelWindow;
+    cancelWindow.setText("You are about to reset all the player and enemy names.");
+    cancelWindow.setInformativeText("Do you want to reset all the names?");
+    cancelWindow.setStandardButtons(QMessageBox::No | QMessageBox::Yes);
+
+
+    int choice = cancelWindow.exec();
+    if(choice == QMessageBox::No)
+    {
+        qDebug() << "dont reset";
+    }
+    if(choice == QMessageBox::Yes)
+    {
+        ui->name1Label->setText("");
+        ui->name2Label->setText("");
+        ui->name3Label->setText("");
+        ui->name4Label->setText("");
+        ui->name5Label->setText("");
+        ui->name6Label->setText("");
+        ui->name7Label->setText("");
+        ui->name8Label->setText("");
+        ui->name9Label->setText("");
+        ui->name10Label->setText("");
+    }
+}
+
+void MainWindow::nextPlayerTurn()
+{
+
 }
 
 void MainWindow::on_bonusesButton_valueChanged(int rollBonus)

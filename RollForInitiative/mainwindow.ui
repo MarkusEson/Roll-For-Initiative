@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>460</width>
+    <width>559</width>
     <height>640</height>
    </rect>
   </property>
@@ -14,28 +14,44 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QVBoxLayout" name="verticalLayout_3">
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <item>
+     <spacer name="horizontalSpacer">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
        <layout class="QVBoxLayout" name="verticalLayout_2">
+        <property name="sizeConstraint">
+         <enum>QLayout::SetMaximumSize</enum>
+        </property>
         <item>
          <layout class="QHBoxLayout" name="addRemovePlayerLayout">
           <item>
-           <widget class="QPushButton" name="addPlayerButton">
+           <widget class="QPushButton" name="nextPlayerButton">
             <property name="text">
-             <string>Add</string>
+             <string>Next</string>
             </property>
             <property name="icon">
              <iconset resource="resources.qrc">
-              <normaloff>:/Images/Resources/Images/accountBIG.png</normaloff>:/Images/Resources/Images/accountBIG.png</iconset>
+              <normaloff>:/Images/Resources/Images/chevron-double-down (2).png</normaloff>:/Images/Resources/Images/chevron-double-down (2).png</iconset>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="removePlayerButton">
+           <widget class="QPushButton" name="resetNamesButton">
             <property name="text">
-             <string>Remove</string>
+             <string>Reset</string>
             </property>
             <property name="icon">
              <iconset resource="resources.qrc">
@@ -46,82 +62,770 @@
          </layout>
         </item>
         <item>
-         <layout class="QVBoxLayout" name="playerNameLayout">
-          <property name="spacing">
+         <layout class="QGridLayout" name="playerNameLayout">
+          <property name="horizontalSpacing">
            <number>-1</number>
           </property>
-          <item>
-           <widget class="QPushButton" name="name1Button">
+          <item row="0" column="2">
+           <widget class="QLabel" name="initiativeLabel">
             <property name="text">
-             <string>namn 1</string>
+             <string>Initiative</string>
             </property>
            </widget>
           </item>
-          <item>
-           <widget class="QPushButton" name="name2Button">
+          <item row="6" column="0">
+           <widget class="QLabel" name="name6Label">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>150</width>
+              <height>30</height>
+             </size>
+            </property>
             <property name="text">
-             <string>namn 2</string>
+             <string>Name 6</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
             </property>
            </widget>
           </item>
-          <item>
-           <widget class="QPushButton" name="name3Button">
+          <item row="10" column="1">
+           <widget class="QPushButton" name="renamePlayer10">
+            <property name="minimumSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border-radius: 10px;</string>
+            </property>
             <property name="text">
-             <string>namn 3</string>
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="resources.qrc">
+              <normaloff>:/Images/Resources/Images/plusBIG.png</normaloff>:/Images/Resources/Images/plusBIG.png</iconset>
             </property>
            </widget>
           </item>
-          <item>
-           <widget class="QPushButton" name="name4Button">
+          <item row="0" column="1">
+           <widget class="QLabel" name="renameLabel">
             <property name="text">
-             <string>namn 4</string>
+             <string>re-name</string>
             </property>
            </widget>
           </item>
-          <item>
-           <widget class="QPushButton" name="name5Button">
+          <item row="7" column="2">
+           <widget class="QPushButton" name="pushButton_17">
+            <property name="minimumSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border-radius: 10px;</string>
+            </property>
             <property name="text">
-             <string>namn 5</string>
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="resources.qrc">
+              <normaloff>:/Images/Resources/Images/dice-multipleBIG.png</normaloff>:/Images/Resources/Images/dice-multipleBIG.png</iconset>
             </property>
            </widget>
           </item>
-          <item>
-           <widget class="QPushButton" name="name6Button">
+          <item row="3" column="0">
+           <widget class="QLabel" name="name3Label">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>150</width>
+              <height>30</height>
+             </size>
+            </property>
             <property name="text">
-             <string>namn 6</string>
+             <string>Name 3</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
             </property>
            </widget>
           </item>
-          <item>
-           <widget class="QPushButton" name="name7Button">
+          <item row="1" column="2">
+           <widget class="QPushButton" name="pushButton_11">
+            <property name="minimumSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border-radius: 10px;</string>
+            </property>
             <property name="text">
-             <string>namn 7</string>
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="resources.qrc">
+              <normaloff>:/Images/Resources/Images/dice-multipleBIG.png</normaloff>:/Images/Resources/Images/dice-multipleBIG.png</iconset>
             </property>
            </widget>
           </item>
-          <item>
-           <widget class="QPushButton" name="name8Button">
+          <item row="9" column="0">
+           <widget class="QLabel" name="name9Label">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>150</width>
+              <height>30</height>
+             </size>
+            </property>
             <property name="text">
-             <string>namn 8</string>
+             <string>Name 9</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
             </property>
            </widget>
           </item>
-          <item>
-           <widget class="QPushButton" name="name9Button">
+          <item row="5" column="1">
+           <widget class="QPushButton" name="renamePlayer5">
+            <property name="minimumSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border-radius: 10px;</string>
+            </property>
             <property name="text">
-             <string>namn 9</string>
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="resources.qrc">
+              <normaloff>:/Images/Resources/Images/plusBIG.png</normaloff>:/Images/Resources/Images/plusBIG.png</iconset>
             </property>
            </widget>
           </item>
-          <item>
-           <widget class="QPushButton" name="name10Button">
+          <item row="0" column="0">
+           <widget class="QLabel" name="nameLabel">
             <property name="text">
-             <string>namn 10</string>
+             <string>Name</string>
             </property>
            </widget>
           </item>
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout_4"/>
+          <item row="1" column="1">
+           <widget class="QPushButton" name="renamePlayer1">
+            <property name="minimumSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border-radius: 10px;</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="resources.qrc">
+              <normaloff>:/Images/Resources/Images/plusBIG.png</normaloff>:/Images/Resources/Images/plusBIG.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QLabel" name="name4Label">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>150</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Name 4</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="1">
+           <widget class="QPushButton" name="renamePlayer6">
+            <property name="minimumSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border-radius: 10px;</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="resources.qrc">
+              <normaloff>:/Images/Resources/Images/plusBIG.png</normaloff>:/Images/Resources/Images/plusBIG.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="2">
+           <widget class="QPushButton" name="pushButton_13">
+            <property name="minimumSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border-radius: 10px;</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="resources.qrc">
+              <normaloff>:/Images/Resources/Images/dice-multipleBIG.png</normaloff>:/Images/Resources/Images/dice-multipleBIG.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="2">
+           <widget class="QPushButton" name="pushButton_12">
+            <property name="minimumSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border-radius: 10px;</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="resources.qrc">
+              <normaloff>:/Images/Resources/Images/dice-multipleBIG.png</normaloff>:/Images/Resources/Images/dice-multipleBIG.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="name1Label">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>150</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Name 1</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="9" column="1">
+           <widget class="QPushButton" name="renamePlayer9">
+            <property name="minimumSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border-radius: 10px;</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="resources.qrc">
+              <normaloff>:/Images/Resources/Images/plusBIG.png</normaloff>:/Images/Resources/Images/plusBIG.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="2">
+           <widget class="QPushButton" name="pushButton_14">
+            <property name="minimumSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border-radius: 10px;</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="resources.qrc">
+              <normaloff>:/Images/Resources/Images/dice-multipleBIG.png</normaloff>:/Images/Resources/Images/dice-multipleBIG.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="2">
+           <widget class="QPushButton" name="pushButton_15">
+            <property name="minimumSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border-radius: 10px;</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="resources.qrc">
+              <normaloff>:/Images/Resources/Images/dice-multipleBIG.png</normaloff>:/Images/Resources/Images/dice-multipleBIG.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="QPushButton" name="renamePlayer4">
+            <property name="minimumSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border-radius: 10px;</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="resources.qrc">
+              <normaloff>:/Images/Resources/Images/plusBIG.png</normaloff>:/Images/Resources/Images/plusBIG.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item row="10" column="0">
+           <widget class="QLabel" name="name10Label">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>150</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Name 10</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="0">
+           <widget class="QLabel" name="name7Label">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>150</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Name 7</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="0">
+           <widget class="QLabel" name="name8Label">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>150</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Name 8</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="0">
+           <widget class="QLabel" name="name5Label">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>150</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Name 5</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="2">
+           <widget class="QPushButton" name="pushButton_16">
+            <property name="minimumSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border-radius: 10px;</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="resources.qrc">
+              <normaloff>:/Images/Resources/Images/dice-multipleBIG.png</normaloff>:/Images/Resources/Images/dice-multipleBIG.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="2">
+           <widget class="QPushButton" name="pushButton_18">
+            <property name="minimumSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border-radius: 10px;</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="resources.qrc">
+              <normaloff>:/Images/Resources/Images/dice-multipleBIG.png</normaloff>:/Images/Resources/Images/dice-multipleBIG.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QPushButton" name="renamePlayer3">
+            <property name="minimumSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border-radius: 10px;</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="resources.qrc">
+              <normaloff>:/Images/Resources/Images/plusBIG.png</normaloff>:/Images/Resources/Images/plusBIG.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QPushButton" name="renamePlayer2">
+            <property name="minimumSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border-radius: 10px;</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="resources.qrc">
+              <normaloff>:/Images/Resources/Images/plusBIG.png</normaloff>:/Images/Resources/Images/plusBIG.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item row="9" column="2">
+           <widget class="QPushButton" name="pushButton_19">
+            <property name="minimumSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border-radius: 10px;</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="resources.qrc">
+              <normaloff>:/Images/Resources/Images/dice-multipleBIG.png</normaloff>:/Images/Resources/Images/dice-multipleBIG.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="1">
+           <widget class="QPushButton" name="renamePlayer8">
+            <property name="minimumSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border-radius: 10px;</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="resources.qrc">
+              <normaloff>:/Images/Resources/Images/plusBIG.png</normaloff>:/Images/Resources/Images/plusBIG.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="1">
+           <widget class="QPushButton" name="renamePlayer7">
+            <property name="minimumSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border-radius: 10px;</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="resources.qrc">
+              <normaloff>:/Images/Resources/Images/plusBIG.png</normaloff>:/Images/Resources/Images/plusBIG.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item row="10" column="2">
+           <widget class="QPushButton" name="pushButton_20">
+            <property name="minimumSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border-radius: 10px;</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="resources.qrc">
+              <normaloff>:/Images/Resources/Images/dice-multipleBIG.png</normaloff>:/Images/Resources/Images/dice-multipleBIG.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="name2Label">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>150</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Name 2</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -146,6 +850,9 @@
       </item>
       <item>
        <layout class="QVBoxLayout" name="verticalLayout">
+        <property name="sizeConstraint">
+         <enum>QLayout::SetMaximumSize</enum>
+        </property>
         <item>
          <layout class="QHBoxLayout" name="addDiceLayout">
           <property name="sizeConstraint">
@@ -211,13 +918,6 @@
         </item>
         <item>
          <layout class="QGridLayout" name="modifyDiceLayout">
-          <item row="0" column="0">
-           <widget class="QLabel" name="amountofDiceLabel">
-            <property name="text">
-             <string>How many dice would you like to roll?</string>
-            </property>
-           </widget>
-          </item>
           <item row="5" column="0">
            <widget class="QLabel" name="resultLabel">
             <property name="text">
@@ -225,10 +925,10 @@
             </property>
            </widget>
           </item>
-          <item row="6" column="0">
-           <widget class="QPushButton" name="rollDiceButton">
+          <item row="0" column="0">
+           <widget class="QLabel" name="amountofDiceLabel">
             <property name="text">
-             <string>Roll the Dice!</string>
+             <string>How many dice would you like to roll?</string>
             </property>
            </widget>
           </item>
@@ -245,15 +945,15 @@
             </property>
            </spacer>
           </item>
-          <item row="3" column="0">
-           <widget class="QSpinBox" name="bonusesButton">
-            <property name="maximum">
-             <number>100</number>
+          <item row="6" column="0">
+           <widget class="QPushButton" name="rollDiceButton">
+            <property name="text">
+             <string>Roll the Dice!</string>
             </property>
            </widget>
           </item>
-          <item row="1" column="0">
-           <widget class="QSpinBox" name="addDiesButton">
+          <item row="3" column="0">
+           <widget class="QSpinBox" name="bonusesButton">
             <property name="maximum">
              <number>100</number>
             </property>
@@ -266,11 +966,31 @@
             </property>
            </widget>
           </item>
+          <item row="1" column="0">
+           <widget class="QSpinBox" name="addDiesButton">
+            <property name="maximum">
+             <number>100</number>
+            </property>
+           </widget>
+          </item>
          </layout>
         </item>
        </layout>
       </item>
      </layout>
+    </item>
+    <item>
+     <spacer name="horizontalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
     </item>
    </layout>
   </widget>
@@ -279,7 +999,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>460</width>
+     <width>559</width>
      <height>22</height>
     </rect>
    </property>

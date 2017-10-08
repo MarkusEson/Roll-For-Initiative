@@ -802,7 +802,11 @@ mainwindow.o: ../RollForInitiative/mainwindow.cpp ../RollForInitiative/mainwindo
 		../RollForInitiative/dice.h \
 		ui_mainwindow.h \
 		../../Qt/5.9.1/clang_64/lib/QtCore.framework/Headers/QDebug \
-		../../Qt/5.9.1/clang_64/lib/QtCore.framework/Headers/qdebug.h
+		../../Qt/5.9.1/clang_64/lib/QtCore.framework/Headers/qdebug.h \
+		../../Qt/5.9.1/clang_64/lib/QtWidgets.framework/Headers/QInputDialog \
+		../../Qt/5.9.1/clang_64/lib/QtWidgets.framework/Headers/qinputdialog.h \
+		../../Qt/5.9.1/clang_64/lib/QtCore.framework/Headers/QDir \
+		../../Qt/5.9.1/clang_64/lib/QtCore.framework/Headers/qdir.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../RollForInitiative/mainwindow.cpp
 
 dice.o: ../RollForInitiative/dice.cpp ../RollForInitiative/dice.h \
